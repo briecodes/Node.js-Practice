@@ -1,0 +1,1 @@
+My name is Brie. This line was appended using appendFileSync.
