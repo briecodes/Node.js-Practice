@@ -1,6 +1,7 @@
 // const getNotes = require('./notes.js');
 // const validator = require('validator');
 const chalk = require('chalk');
+const yargs = require('yargs');
 
 // const add = require('./utils.js');
 
@@ -34,4 +35,60 @@ const chalk = require('chalk');
     Bonus: Use docs to mess around with other styles. Make text bold and inversed.
 */
 
-console.log(chalk.green.bold.inverse('Success!'));
+// console.log(chalk.green.bold.inverse('ciao!'));
+
+// console.log(process.argv[2]);
+
+// const command = process.argv[2];
+
+// switch(command) {
+//     case 'add':
+//       console.log('adding note…');
+//       break;
+//     case 'remove':
+//       console.log('removing note…');
+//       break;
+//     default: return;
+// };
+
+// Customize yargs version
+yargs.version('1.1.0');
+
+// console.log(process.argv);
+
+// Create add command
+yargs.command({
+  command: 'add',
+  describe: 'Add a new note',
+  handler: () => console.log('adding a new note')
+});
+
+
+// Create remove command
+yargs.command({
+  command: 'remove',
+  describe: 'Remove a note',
+  handler: () => console.log('removing the note')
+});
+
+/*
+    Challenge: Add two new commands
+
+    1. Setup command to support "list" command (print placeholder message for now)
+    2. Setup command to support "read" command (print placeholder message for now)
+    3. Test your work by running both commands and ensure correct output
+*/
+
+yargs.command({
+  command: 'list',
+  describe: 'List notes',
+  handler: () => console.log('listing notes…')
+});
+
+yargs.command({
+  command: 'read',
+  describe: 'Read a note',
+  handler: () => console.log('reading a note…')
+});
+
+console.log(yargs.argv);
