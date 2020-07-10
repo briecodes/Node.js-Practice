@@ -60,7 +60,19 @@ yargs.version('1.1.0');
 yargs.command({
   command: 'add',
   describe: 'Add a new note',
-  handler: () => console.log('adding a new note')
+  builder: {
+    title: {
+      describe: 'Note title',
+      demandOption: true,
+      type: 'string'
+    },
+    body: {
+      describe: 'Note body',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler: (argv) => console.log(`title: ${argv.title} | body: ${argv.body}`)
 });
 
 
@@ -70,14 +82,6 @@ yargs.command({
   describe: 'Remove a note',
   handler: () => console.log('removing the note')
 });
-
-/*
-    Challenge: Add two new commands
-
-    1. Setup command to support "list" command (print placeholder message for now)
-    2. Setup command to support "read" command (print placeholder message for now)
-    3. Test your work by running both commands and ensure correct output
-*/
 
 yargs.command({
   command: 'list',
@@ -91,4 +95,5 @@ yargs.command({
   handler: () => console.log('reading a note…')
 });
 
-console.log(yargs.argv);
+// console.log(yargs.argv);
+yargs.parse();
