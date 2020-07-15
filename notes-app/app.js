@@ -2,6 +2,7 @@
 // const validator = require('validator');
 const chalk = require('chalk');
 const yargs = require('yargs');
+const notes = require('./notes');
 
 // const add = require('./utils.js');
 
@@ -72,7 +73,7 @@ yargs.command({
       type: 'string'
     }
   },
-  handler: (argv) => console.log(`title: ${argv.title} | body: ${argv.body}`)
+  handler: (argv) => /* console.log(`title: ${argv.title} | body: ${argv.body}`) */ notes.addNote(argv.title, argv.body)
 });
 
 
