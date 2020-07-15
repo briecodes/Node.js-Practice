@@ -16,7 +16,19 @@ const addNote = (title, body) => {
   } else {
     console.log('Note title taken!');
   };
+};
 
+const removeNote = title => {
+  const notes = loadNotes();
+  const noteExists = notes.filter( note => note.title === title );
+
+  if (noteExists.length > 0) {
+    const updatedNotes = notes.filter(note => note.title != title);
+    saveNotes(updatedNotes);
+    console.log(`Note "${title}" removed!`);
+  } else {
+    console.log(`Note "${title}" does not exist!`);
+  };
 };
 
 const saveNotes = (notes) => {
@@ -35,4 +47,4 @@ const loadNotes = () => {
   };
 };
 
-module.exports = {getNotes: getNotes, addNote};
+module.exports = {getNotes: getNotes, addNote, removeNote};
