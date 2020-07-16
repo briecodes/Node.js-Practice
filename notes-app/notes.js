@@ -47,4 +47,4 @@ const loadNotes = () => {
   };
 };
 
-module.exports = {getNotes: getNotes, addNote, removeNote};
+module.exports = { getNotes: getNotes, addNote, removeNote };
